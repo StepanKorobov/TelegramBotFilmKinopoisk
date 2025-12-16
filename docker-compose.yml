@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  telegram-bot-films:
+    build: .
+    volumes:
+      - ./database/movie_bot.db:/app/database/movie_bot.db
+      - ./log/debug.log:/app/log/debug.log
+    container_name: telegram-bot-films
+    restart: unless-stopped
+    env_file:
+      - .env
